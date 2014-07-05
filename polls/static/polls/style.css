@@ -32,7 +32,6 @@ h1{
 	color: #066;
 }
 
-/*************************/
 .choiceform{
 	padding: 20px 10px 20px 10px;
 }
@@ -46,10 +45,7 @@ input[type="submit"]{
 	background-color: #277;
 	color: #f1f1f1;
 }
-/*************************/
 
-/*************************/
 .resultado{
 	list-style-type:square;
 }
-/*************************/
