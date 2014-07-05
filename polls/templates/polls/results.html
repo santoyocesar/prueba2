@@ -1,0 +1,19 @@
+{% extends 'polls/base.html' %}
+
+{% block titulo %}Resultados{% endblock %}
+
+{% block encabezado %}
+	{{ poll.question }}
+{% endblock %}
+
+{% block contenido %}
+	<ul>
+	{% for choice in poll.choice_set.all %}
+		<li class="resultado">{{ choice.votes }} voto{{ choice.votes|pluralize }}: {{ choice.choice_text }}</li>
+	{% endfor %}
+	</ul>
+
+	<a href="{% url 'polls:index' %}">Ir a preguntas.</a>
+	<a href="{% url 'polls:detail' poll.id %}">Votar otra vez.</a>
+
+{% endblock %}

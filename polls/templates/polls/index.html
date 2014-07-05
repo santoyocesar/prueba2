@@ -1,0 +1,26 @@
+{% extends 'polls/base.html' %}
+
+{% block style_css %}
+	li{
+		margin-bottom: 10px;
+	}
+	a{
+		font-weight: bold;
+	}
+{% endblock %}
+
+{% block titulo %}Encuestas{% endblock %}
+
+{% block encabezado %}Preguntas: {% endblock %}
+
+{% block contenido %}
+	{% if latest_poll_list %}
+		<ul class='preguntas'>
+			{% for poll in latest_poll_list %}
+				<li><a href="{% url 'polls:detail' poll.id %}">{{ poll.question }}</a></li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p>No polls are available.</p>
+	{% endif %}
+{% endblock %}

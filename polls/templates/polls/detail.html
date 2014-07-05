@@ -1,0 +1,22 @@
+{% extends 'polls/base.html' %}
+
+{% block titulo %}Votar{% endblock %}
+
+{% block style_css %}{% endblock %}
+
+{% block encabezado %}{{ poll.question }}{% endblock %}
+
+{% block contenido %}
+	{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+	<form class="choiceform" action="{% url 'polls:vote' poll.id %}" method="post">
+	{% csrf_token %}
+	{% for choice in poll.choice_set.all %}
+		<div class="opcion">
+			<input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" >
+			<label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label>
+		</div>
+	{% endfor %}
+	<input type="submit" value="Votar" />
+	</form>
+	<a href="{% url 'polls:index' %}">Atras.</a>
+{% endblock %}

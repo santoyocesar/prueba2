@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html leng='es'>
+<head>
+	<title>{% block titulo %}{% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}polls/style.css">
+	<style type="text/css">
+		{% block style_css %}{% endblock %}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>{% block encabezado %}{% endblock %}</h1>
+	</header>
+	<section class="contenido">
+		{% block contenido %}{% endblock %}
+	</section>
+	<footer></footer>
+</body>
+</html>
